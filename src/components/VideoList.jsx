@@ -1,10 +1,13 @@
-var VideoList = () => (
-  <div className="video-list">
+var VideoList = (props) => (
+ <div className="video-list">
+
+    {props.videoData.map(video => {
+      return <div><h5><em>videoListEntry videoData={video}</em> view goes here</h5></div>
+    })}
+    {/* <div><h5><em>props.videoListEntry = {exampleVideoData[0]}</em> view goes here</h5></div>
     <div><h5><em>videoListEntry</em> view goes here</h5></div>
     <div><h5><em>videoListEntry</em> view goes here</h5></div>
-    <div><h5><em>videoListEntry</em> view goes here</h5></div>
-    <div><h5><em>videoListEntry</em> view goes here</h5></div>
-    <div><h5><em>videoListEntry</em> view goes here</h5></div>
+    <div><h5><em>videoListEntry</em> view goes here</h5></div> */}
   </div>
 );
 
