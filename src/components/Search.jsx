@@ -7,7 +7,7 @@ var Search = () => (
     
       <span className="glyphicon glyphicon-search"></span>
     </button>
-  </div> 
+  </div>
 );
 
 // In the ES6 spec, files are "modules" and do not share a top-level scope
