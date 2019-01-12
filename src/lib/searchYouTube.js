@@ -13,7 +13,7 @@ var searchYouTube = (options, callback, errorCB = null) => {
     },
 
     contentType: 'application/json',
-    success: function(data) {
+    success: function(data){
       callback(data.items);
     },
     error: errorCB || function(error) {
