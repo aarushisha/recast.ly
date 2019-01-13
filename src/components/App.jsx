@@ -46,7 +46,7 @@ class App extends React.Component {
     this.props.searchYouTube({
       max: 5,
       query: "example",
-      key: "AIzaSyASOkY-8RwNgYk45gyjzXOMbBI7VjtBnpA"
+      key: "AIzaSyDbcAwgsdxdCOMwMY_HGX9qsDS6Z0XbhrE"
     }, this.changeState.bind(this))
   }
 
