@@ -12,7 +12,7 @@ class App extends React.Component {
       video : null,
       // value : ''
     }
-     this.handleChange = _.debounce(this.handleChange, 500);
+     this.handleChange = _.debounce(this.handleChange, 5000);
   }
   hasClickVideoTitle(video){
       this.setState (
