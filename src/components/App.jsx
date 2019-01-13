@@ -12,18 +12,22 @@ class App extends React.Component {
       video : null,
       value : ''
     }
+    this.handleChange = _.debounce(this.handleChange, 3000);
   }
   hasClickVideoTitle(video){
       this.setState (
         {video : video.video}
       );
   }
+
+
   handleChange(event) {
+    console.log(event.target.value)
     this.setState({ value : event.target.value});
     this.props.searchYouTube({
       max: 5,
       query: this.state.value,
-      key: "AIzaSyCoE_Nv0XygYyhMKDGIe7ya1V_JpPNM9M8"
+      key: "AIzaSyDbcAwgsdxdCOMwMY_HGX9qsDS6Z0XbhrE"
     }, this.changeState.bind(this))
   }
   handleClick() {
@@ -42,7 +46,7 @@ class App extends React.Component {
     this.props.searchYouTube({
       max: 5,
       query: "example",
-      key: "AIzaSyCoE_Nv0XygYyhMKDGIe7ya1V_JpPNM9M8"
+      key: "AIzaSyDbcAwgsdxdCOMwMY_HGX9qsDS6Z0XbhrE"
     }, this.changeState.bind(this))
   }
   render() {
