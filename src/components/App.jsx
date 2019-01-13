@@ -2,7 +2,7 @@ import VideoList from './VideoList.js';
 import VideoPlayer from './VideoPlayer.js';
 import Search from './Search.js';
 // import exampleVideoData from './data/exampleVideoData.js';
-// AIzaSyCoE_Nv0XygYyhMKDGIe7ya1V_JpPNM9M8
+// AIzaSyBu7TDbeIY7y3XTW5g8I6WI7n4ZW-6_wEc
 
 class App extends React.Component {
   constructor(props) {
@@ -26,7 +26,7 @@ class App extends React.Component {
     this.props.searchYouTube({
       max: 5,
       query: document.getElementsByClassName('form-control').value,
-      key: "AIzaSyCoE_Nv0XygYyhMKDGIe7ya1V_JpPNM9M8"
+      key: "AIzaSyASOkY-8RwNgYk45gyjzXOMbBI7VjtBnpA"
     }, this.changeState.bind(this))
   }
   changeState(data) {
@@ -46,7 +46,7 @@ class App extends React.Component {
     this.props.searchYouTube({
       max: 5,
       query: "example",
-      key: "AIzaSyCoE_Nv0XygYyhMKDGIe7ya1V_JpPNM9M8"
+      key: "AIzaSyASOkY-8RwNgYk45gyjzXOMbBI7VjtBnpA"
     }, this.changeState.bind(this))
   }
   render() {
