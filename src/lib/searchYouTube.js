@@ -14,7 +14,8 @@ var searchYouTube = (options, callback, errorCB = null) => {
 
     contentType: 'application/json',
     success: function(data){
-      callback(data.items);
+      console.log(data);
+      return callback(data.items);
     },
     error: errorCB || function(error) {
       console.error('failed to fetch youtube search results', error);

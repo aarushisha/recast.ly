@@ -1,6 +1,8 @@
 import VideoList from './VideoList.js';
 import VideoPlayer from './VideoPlayer.js';
+import Search from './Search.js';
 // import exampleVideoData from './data/exampleVideoData.js';
+// AIzaSyCoE_Nv0XygYyhMKDGIe7ya1V_JpPNM9M8
 
 class App extends React.Component {
   constructor(props) {
@@ -19,13 +21,33 @@ class App extends React.Component {
       );
       console.log(video);
   }
-  componentDidMount(){
+  handleClick() {
+    console.log("inside handleClick")
+    this.props.searchYouTube({
+      max: 5,
+      query: document.getElementsByClassName('form-control').value,
+      key: "AIzaSyCoE_Nv0XygYyhMKDGIe7ya1V_JpPNM9M8"
+    }, this.changeState.bind(this))
+  }
+  changeState(data) {
     this.setState (
       {
-        videos : this.props.exampleVideoData,
-        video : this.props.exampleVideoData[0]
+        videos : data,
+        video : data[0]
       }
     )
+  }
+  // after click button
+  //  acquire search words
+  //  make get request with that search words
+  //   get the data from server and render everything
+
+  componentDidMount(){
+    this.props.searchYouTube({
+      max: 5,
+      query: "example",
+      key: "AIzaSyCoE_Nv0XygYyhMKDGIe7ya1V_JpPNM9M8"
+    }, this.changeState.bind(this))
   }
   render() {
     //  console.log(this.props.exampleVideoData[0]);
@@ -34,7 +56,7 @@ class App extends React.Component {
         <div>
           <nav className="navbar">
             <div className="col-md-6 offset-md-3">
-              <div><h5><em>search</em> view goes here</h5></div>
+              <div><h5><em>search</em><Search handleClick ={this.handleClick.bind(this)}/></h5></div>
             </div>
           </nav>
           <div className="row">
