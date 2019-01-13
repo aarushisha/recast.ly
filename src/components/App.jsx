@@ -7,27 +7,28 @@ import Search from './Search.js';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    // console.log(this.props.exampleVideoData);
     this.state = {
-      // keep track of videos in videoList
       videos : [],
-      // // keep trach of video in videoPlayer
-      video : null
+      video : null,
+      value : ''
     }
   }
   hasClickVideoTitle(video){
       this.setState (
         {video : video.video}
       );
-      console.log(video);
+  }
+  handleChange(event) {
+    this.setState({ value : event.target.value});
+    this.props.searchYouTube({
+      max: 5,
+      query: this.state.value,
+      key: "AIzaSyCoE_Nv0XygYyhMKDGIe7ya1V_JpPNM9M8"
+    }, this.changeState.bind(this))
   }
   handleClick() {
     console.log("inside handleClick")
-    this.props.searchYouTube({
-      max: 5,
-      query: document.getElementsByClassName('form-control').value,
-      key: "AIzaSyCoE_Nv0XygYyhMKDGIe7ya1V_JpPNM9M8"
-    }, this.changeState.bind(this))
+
   }
   changeState(data) {
     this.setState (
@@ -37,11 +38,6 @@ class App extends React.Component {
       }
     )
   }
-  // after click button
-  //  acquire search words
-  //  make get request with that search words
-  //   get the data from server and render everything
-
   componentDidMount(){
     this.props.searchYouTube({
       max: 5,
@@ -50,13 +46,11 @@ class App extends React.Component {
     }, this.changeState.bind(this))
   }
   render() {
-    //  console.log(this.props.exampleVideoData[0]);
-
     return (
         <div>
           <nav className="navbar">
             <div className="col-md-6 offset-md-3">
-              <div><h5><em>search</em><Search handleClick ={this.handleClick.bind(this)}/></h5></div>
+              <div><Search handleClick ={this.handleClick.bind(this)} handleChange = {this.handleChange.bind(this)}/></div>
             </div>
           </nav>
           <div className="row">

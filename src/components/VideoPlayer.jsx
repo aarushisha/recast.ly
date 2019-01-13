@@ -1,6 +1,5 @@
 var VideoPlayer = (props) => {
   //console.log("videoId" + props.video.id.videoId);
-  console.log(props);
   if(props.video !== null){
     return (
       <div className="video-player">
