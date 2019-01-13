@@ -10,9 +10,9 @@ class App extends React.Component {
     this.state = {
       videos : [],
       video : null,
-      value : ''
+      // value : ''
     }
-    this.handleChange = _.debounce(this.handleChange, 3000);
+     this.handleChange = _.debounce(this.handleChange, 500);
   }
   hasClickVideoTitle(video){
       this.setState (
@@ -22,12 +22,12 @@ class App extends React.Component {
 
 
   handleChange(event) {
-    console.log(event.target.value)
-    this.setState({ value : event.target.value});
+    console.log(event)
+    // this.setState({ value : event.target.value});
     this.props.searchYouTube({
       max: 5,
-      query: this.state.value,
-      key: "AIzaSyDbcAwgsdxdCOMwMY_HGX9qsDS6Z0XbhrE"
+      query: event,
+      key: "AIzaSyASOkY-8RwNgYk45gyjzXOMbBI7VjtBnpA"
     }, this.changeState.bind(this))
   }
   handleClick() {
@@ -46,9 +46,10 @@ class App extends React.Component {
     this.props.searchYouTube({
       max: 5,
       query: "example",
-      key: "AIzaSyDbcAwgsdxdCOMwMY_HGX9qsDS6Z0XbhrE"
+      key: "AIzaSyASOkY-8RwNgYk45gyjzXOMbBI7VjtBnpA"
     }, this.changeState.bind(this))
   }
+
   render() {
     return (
         <div>
